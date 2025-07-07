@@ -1084,6 +1084,7 @@ select {
         
             <button @click="sendPhishingEmails">Send Phishing Email</button>
             <button @click="downloadReport">Download Performance Report</button>
+            <button @click="downloadReportPdf">Download Complete Report</button>
             <button @click="emailedCandidatesReport">Generate Emailed Candidates Report</button>       
             <button @click="sendReminder" class="sending-reminder-button">Send Reminder</button>
 
@@ -1625,6 +1626,26 @@ export default {
                 alert("An error occurred while downloading the certificate.");
             }
         },
+
+        async downloadReportPdf() {
+            try {
+                const response = await fetch('http://127.0.0.1:5000/generate_reports_pdf');
+                if (!response.ok) throw new Error('Failed to fetch PDF report');
+
+                const blob = await response.blob();
+                const url = window.URL.createObjectURL(blob);
+
+                const link = document.createElement('a');
+                link.href = url;
+                link.download = 'Phishing_Simulation_Report.pdf';
+                link.click();
+
+                window.URL.revokeObjectURL(url);
+            } catch (error) {
+                console.error('Error downloading report:', error);
+                alert('Could not download PDF report at this time.');
+            }
+        }
     },
 
     async mounted() {

@@ -169,6 +169,13 @@ class Questions(db.Model):
             "options": self.options,
             "answer": self.answer
         }
+    
+class EmailedCandidate(db.Model):
+    __tablename__ = 'emailed_candidates'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100), nullable=False)
+    email = db.Column(db.String(100), nullable=False)
+    designation = db.Column(db.String(100), nullable=False)
 
 
 # class Reports(db.Model):

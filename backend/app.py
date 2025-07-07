@@ -1295,7 +1295,7 @@
 
 import psycopg2
 import csv
-from flask import Flask, jsonify, request, send_file
+from flask import Flask, jsonify, request, send_file, make_response, render_template
 from models import *
 from flask_cors import CORS
 import os
@@ -1315,6 +1315,10 @@ from werkzeug.security import generate_password_hash
 import jwt
 from sqlalchemy import func
 from dotenv import load_dotenv
+import matplotlib.pyplot as plt
+import base64
+from weasyprint import HTML
+from sqlalchemy import func
 
 load_dotenv()
 
@@ -2596,6 +2600,68 @@ def delete_colleagues_data():
     except Exception as e:
         db.session.rollback()
         return jsonify({"error": str(e)}), 500
+    
+def generate_pie_chart(data, labels, colors):
+    fig, ax = plt.subplots()
+    ax.pie(data, labels=labels, autopct='%1.1f%%', startangle=90, colors=colors)
+    ax.axis('equal')
+    buffer = BytesIO()
+    plt.savefig(buffer, format='png', bbox_inches='tight')
+    plt.close(fig)
+    buffer.seek(0)
+    img_base64 = base64.b64encode(buffer.read()).decode('utf-8')
+    return img_base64
+
+@app.route('/generate_reports_pdf')
+def generate_styled_report():
+    reports = Reports.query.all()
+    total_recipients = EmailedCandidate.query.count()
+    fail_count = Reports.query.filter_by(clicked=True).count()
+    pass_count = len(reports) - fail_count
+    clicked_only = Reports.query.filter(Reports.clicked == True, Reports.answered == False).count()
+    clicked_and_answered = Reports.query.filter(Reports.clicked == True, Reports.answered == True).count()
+    repeat_offender = db.session.query(Reports.colleague_id).filter_by(clicked=True).group_by(Reports.colleague_id).having(func.count(Reports.id) > 1).count()
+
+    summary = [
+        {'label': 'Total Recipients (Emailed)', 'value': total_recipients},
+        {'label': 'Fail', 'value': fail_count},
+        {'label': 'Pass', 'value': pass_count},
+        {'label': 'Clicked Only', 'value': clicked_only},
+        {'label': 'Clicked & Submitted Data', 'value': clicked_and_answered},
+        {'label': 'Repeat Offender', 'value': repeat_offender}
+    ]
+
+    # 3 charts: Pass/Fail, Clicked vs Not, Clicked Only vs Clicked&Submitted
+    chart1 = generate_pie_chart([fail_count, pass_count], ['Fail', 'Pass'], ['#e74c3c', '#2ecc71'])
+    chart2 = generate_pie_chart([clicked_only, clicked_and_answered], ['Clicked Only', 'Clicked & Submitted'], ['#f39c12', '#3498db'])
+    chart3 = generate_pie_chart([len(reports) - fail_count, fail_count], ['Did Not Click', 'Clicked'], ['#2ecc71', '#e74c3c'])
+    charts = [chart1, chart2, chart3]
+
+    candidate_reports = []
+    for report in reports:
+        colleague = Colleagues.query.get(report.colleague_id)
+        candidate_reports.append({
+            'id': report.id,
+            'name': colleague.name if colleague else 'Unknown',
+            'clicked': 'Yes' if report.clicked else 'No',
+            'answered': 'Yes' if report.answered else 'No',
+            'score': f"{report.score}%" if report.score else '0%',
+            'status': report.status,
+            'completion_date': report.completion_date.strftime('%Y-%m-%d') if report.completion_date else '-'
+        })
+
+    rendered_html = render_template(
+        'phishing_report.html',
+        summary=summary,
+        charts=charts,
+        reports=candidate_reports
+    )
+
+    pdf = HTML(string=rendered_html).write_pdf()
+    response = make_response(pdf)
+    response.headers['Content-Type'] = 'application/pdf'
+    response.headers['Content-Disposition'] = 'inline; filename=styled_report.pdf'
+    return response
 
 
 if __name__ == "__main__":
