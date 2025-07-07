@@ -1629,7 +1629,8 @@ export default {
 
         async downloadReportPdf() {
             try {
-                const response = await fetch('http://127.0.0.1:5000/generate_reports_pdf');
+                // const response = await fetch('http://127.0.0.1:5000/generate_reports_pdf');
+                const response = await fetch('https://phishing-application-demo.onrender.com/generate_reports_pdf');
                 if (!response.ok) throw new Error('Failed to fetch PDF report');
 
                 const blob = await response.blob();
