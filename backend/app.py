@@ -1818,7 +1818,7 @@ def send_email():
         # tracking_link = f"https://phishing-mail-application.onrender.com/phishing_test/{colleague.id}"
         # tracking_link = f"https://phishing-mail-frontend.vercel.app/phishing_test/{colleague.id}"
         # tracking_link = f"http://localhost:8080/phishing_test/{colleague.id}"
-        tracking_link = f"https://phishing-application-demo.vercel.app/phishing_test/{colleague.id}"
+        tracking_link = f"https://phishing-application-demo-nqsy.vercel.app/phishing_test/{colleague.id}"
         # tracking_link = f"http://localhost:8080/phishing_test/{colleague.id}"
 
         print(f"Generated tracking link for {colleague.name}: {tracking_link}")
@@ -2062,7 +2062,7 @@ def submit_answers(colleague_id):
         db.session.commit()
 
         # study_material_link = f"http://localhost:8080/study-material/{colleague_id}"
-        study_material_link = f"https://phishing-application-demo.vercel.app/study-material/{colleague_id}"
+        study_material_link = f"https://phishing-application-demo-nqsy.vercel.app/study-material/{colleague_id}"
 
         if report.score >= 70:
             subject = "Congratulations on Completing the Training Program!"
@@ -2529,7 +2529,7 @@ def send_reminder(report_id):
             colleague_id = report.colleague_id
 
             # study_material_link = f"http://localhost:8080/study-material/{colleague_id}"
-            study_material_link = f"https://phishing-application-demo.vercel.app/study-material/{colleague_id}"
+            study_material_link = f"https://phishing-application-demo-nqsy.vercel.app/study-material/{colleague_id}"
 
             msg = MIMEMultipart()
             msg['From'] = from_email
