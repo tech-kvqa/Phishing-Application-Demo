@@ -11,7 +11,7 @@
         </nav> -->
 
         <div class="login-container">
-        <div class="logoBrand"><img src="Xploit2Secure.png" alt="Logo" class="logo" /></div>
+        <div class="logoBrand"><img :src="logo" alt="Logo" class="logo" /></div>
             <h2>Login</h2>
             <form @submit.prevent="login">
                 <div class="form-group">
@@ -33,6 +33,7 @@
 </template>
 
 <script>
+import logo from '@/assets/Xploit2Secure.png'
 export default {
     data() {
         return {
