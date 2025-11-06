@@ -1,16 +1,17 @@
 <template>
-    <div>
-        <nav class="navbar">
+    <div class="login-page">
+        <!-- <nav class="navbar">
             <div class="navbar-brand">
                 <img src="Xploit2Secure.jpeg" alt="Logo" class="logo" />
-                <!-- <h1>SECURE LAB</h1> -->
-                <!-- <div class="navbar-buttons">
+                <h1>SECURE LAB</h1>
+                <div class="navbar-buttons">
                     <button @click="openQuestionModal">Manage Questions</button>
-                </div> -->
+                </div> 
             </div>
-        </nav>
+        </nav> -->
 
         <div class="login-container">
+        <div class="logoBrand"><img src="Xploit2Secure.png" alt="Logo" class="logo" /></div>
             <h2>Login</h2>
             <form @submit.prevent="login">
                 <div class="form-group">
@@ -44,8 +45,10 @@ export default {
     methods: {
         async login() {
             try {
-                // const response = await fetch('http://127.0.0.1:5000/login', {
                 const response = await fetch('https://phishing-application-demo.onrender.com/login', {
+                // const response = await fetch('http://35.182.29.153/api/login', {
+                // const response = await fetch('https://telecrm-phishing-application.onrender.com//login', {
+                // const response = await fetch('https://phishing-application-demo.onrender.com/login', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -79,7 +82,7 @@ export default {
   max-width: 400px;
   margin: 0 auto;
   padding: 20px;
-  background-color: white;
+  background-color: #f8f9fb;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -153,8 +156,15 @@ button:hover {
 } */
 
 /* General page background */
+.login-page {
+    background: #1f3557;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 body {
-    background: linear-gradient(135deg, #b3e5fc, #e1bee7);
+    background: #1f3557;
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -184,7 +194,7 @@ body {
 }
 
 .logo:hover {
-    transform: rotate(20deg) scale(1.1);
+    transform: rotate(6deg) scale(1.1);
 }
 
 /* Container for the login form */
@@ -192,10 +202,10 @@ body {
     width: 100%;
     max-width: 400px;
     margin: 0 auto;
-    padding: 20px;
-    background-color: white;
+    padding: 2rem;
+    background-color: #f8f9fb;
     border-radius: 12px;
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0px 17px rgb(0 0 0);
     transition: transform 0.3s ease;
 }
 
@@ -208,7 +218,6 @@ h2 {
     text-align: center;
     color: #2a4d85;
     font-weight: bold;
-    text-transform: uppercase;
     margin-bottom: 20px;
 }
 
@@ -220,31 +229,32 @@ h2 {
 label {
     display: block;
     margin-bottom: 5px;
-    font-weight: bold;
+    font-weight: 500;
     color: #333;
+    text-align: left;
 }
 
 input {
     width: 100%;
-    padding: 10px;
+    padding: 14px;
     border-radius: 8px;
-    border: 1px solid #ddd;
+    border: 1px solid #a1a1a1;
     font-size: 14px;
     box-sizing: border-box;
     transition: border-color 0.3s ease;
 }
 
 input:focus {
-    border-color: #26c8bb;
+    border-color: #4171bc;
     outline: none;
-    box-shadow: 0 0 5px rgba(38, 200, 187, 0.5);
+    box-shadow: 0 0 5px rgb(31 53 87 / 54%);
 }
 
 /* Submit button */
 button {
     width: 100%;
     padding: 12px;
-    background: linear-gradient(135deg, #4df19f, #26c8bb);
+    background: linear-gradient(135deg, #144ca0, #1f3456);
     color: white;
     border: none;
     border-radius: 8px;
@@ -255,8 +265,8 @@ button {
 }
 
 button:hover {
-    background: linear-gradient(135deg, #74cff3, #4df19f);
-    transform: scale(1.05);
+    background: linear-gradient(135deg, #2e486f, #285499);
+    /*transform: scale(1.05);*/
 }
 
 button:active {

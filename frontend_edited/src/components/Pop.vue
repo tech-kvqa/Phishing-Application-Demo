@@ -1,6 +1,6 @@
 <template>
     <div v-if="showPopup" class="popup">
-        <div class="popup-content" :class="{ 'score-popup': showScoreSection }">
+        <div class="popup-content" :class="{ 'score-popup': showScoreSection, 'phish-warning-active': isPhishingWarningActive }">
             <!-- Phishing alert content -->
 
             <div v-if="!showStudyMaterial && !showQuestions && !showCloseButton" class="alert-popup">
@@ -129,6 +129,12 @@ export default {
         if (this.$route.path.startsWith('/study-material')) {
             this.showStudyMaterial = true; // Open the study material section directly
             this.trackPresentationCompletion();
+        }
+    },
+
+    computed: {
+        isPhishingWarningActive() {
+            return !this.showStudyMaterial && !this.showQuestions && !this.showCloseButton;
         }
     },
 
@@ -716,5 +722,9 @@ h1 {
   color: #fff;
 }
 
+.phish-warning-active {
+  background: #1f3557;
+  color: #ffffff;
+}
 
 </style>

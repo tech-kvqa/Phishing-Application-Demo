@@ -24,7 +24,7 @@
                                         placeholder="Option"
                                         required
                                     />
-                                    <button type="button" @click="deleteOption(index)">Delete Option</button>
+                                    <button type="button" @click="deleteOption(index)">Delete</button>
                                 </div>
                                 <button type="button" @click="addOption">Add Option</button>
                             </div>
@@ -622,13 +622,6 @@ body {
     margin-left: 20px;
 }
 
-.navbar {
-    background-color: #26c8bb;
-    color: white;
-    padding: 1rem;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
-}
-
 .nav-links a {
     color: white;
     text-decoration: none;
@@ -651,31 +644,6 @@ body {
     background-size: cover;
 }
 
-h2 {
-    font-size: 28px;
-    color: #444;
-    border-bottom: 2px solid #69b820;
-    padding-bottom: 15px;
-    margin-bottom: 30px;
-}
-
-button {
-    padding: 8px 10px;
-    font-size: 14px;
-    background-image: linear-gradient(to right, #4df19f, #34d399);
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-    margin: 10px 20px;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
-}
-
-button:hover {
-    background-image: linear-gradient(to right, #57a015, #4ca852);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
 
 table {
     width: 100%;
@@ -694,15 +662,6 @@ table td {
 table th {
     background-color: #c2e8a7;
     font-weight: bold;
-}
-
-tbody tr:nth-child(even) {
-    background-color: #f1f1f1;
-}
-
-tbody tr:hover {
-    background-color: #e1f5fe;
-    transition: background 0.3s ease;
 }
 
 
@@ -752,69 +711,21 @@ select {
     color: green;
 }
 
-.upload-section {
-    margin: 1rem 0;
-}
 
-
-.navbar {
-    background-color: #26c8bb;
-    color: white;
-    padding: 1rem;
-    position: relative;
-    z-index: 100;
-}
 
 .navbar-brand {
     display: flex;
     align-items: center;
 }
 
-
-.modal-content {
-    background: white;
-    padding: 8px 16px;
-    border-radius: 5px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    width: 800px;
-    max-height: 80vh;
-    display: flex;
-    flex-direction: column;
-}
-
-.modal {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    z-index: 1200;
-    width: 800px;
-    border: 1px solid #26c8bb;
-}
-
 .questions-list {
     max-height: 300px;
     overflow-y: auto;
-    margin-top: 20px;
 }
 
 
 .navbar-buttons {
     margin-left: auto;
-}
-
-.navbar-buttons button {
-    margin-left: auto;
-    background-color: #9de764;
-}
-
-.navbar-buttons button:hover {
-    margin-left: auto;
-    background-color: #529af3;
 }
 
 .close-button {
@@ -827,8 +738,9 @@ select {
 }
 
 .modal-content h3 {
-    font-size: 22px;
-    margin-bottom: 15px;
+     font-size: 18px;
+    margin-bottom: 6px;
+    text-transform: uppercase;
 }
 
 .modal-content form {
@@ -859,7 +771,6 @@ select {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    margin-top: 10px;
 }
 
 .modal-content button::before {
@@ -878,12 +789,6 @@ select {
     background-color: #d32f2f;
 }
 
-.modal-content button[type="button"] {
-    font-size: 12px;
-    padding: 8px;
-    background-color: #28a745;
-    margin-top: 5px;
-}
 
 .modal-content button[type="button"]:hover {
     background-color: #218838;
@@ -901,7 +806,6 @@ select {
 
 .questions-list table {
     width: 100%;
-    margin-top: 20px;
     border-collapse: collapse;
 }
 
@@ -929,6 +833,7 @@ select {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    min-width: 70px;
 }
 
 .questions-list h3 {
@@ -942,18 +847,17 @@ select {
 
 .options-container {
     display: flex;
-    flex-direction: column;
-    margin-bottom: 1rem;
+        margin-bottom: 0rem;
+    flex-wrap: wrap;
+        gap: 10px;
 }
 
 .option-item {
     display: flex;
     align-items: center;
     margin-bottom: 0.5rem;
-}
-
-.option-item input {
-    margin-right: 0.5rem;
+    gap:5px;
+    flex:1;
 }
 
 .form-group {
@@ -961,16 +865,18 @@ select {
     align-items: center;
     margin-bottom: 1rem;
     position: relative;
+    margin-top: 6px;
 }
 
 .form-group select {
-    padding: 10px;
-    font-size: 16px;
+       padding: 10px;
+    font-size: 13px;
     border-radius: 8px;
-    border: 1px solid #ddd;
     width: 200px;
+    border: 1px solid #8d8d8d;
+    -webkit-appearance: none;
+    -moz-appearance: none;
     appearance: none;
-    background-color: #f1f1f1;
     color: #333;
     cursor: pointer;
     transition: border-color 0.3s ease;
@@ -998,34 +904,7 @@ select {
 .form-buttons {
     display: flex;
     gap: 10px;
-}
-
-.form-buttons button {
-    padding: 10px 15px;
-    font-size: 16px;
-    margin-left: 5px;
-    cursor: pointer;
-    border: none;
-    border-radius: 5px;
-}
-
-.form-buttons button:hover {
-    background-color: #045b31;
-    color: white;
-}
-
-.form-buttons button[type="submit"]:hover {
-    background-color: #218838;
-}
-
-.form-buttons button[type="submit"] {
-    background-color: #007BFF;
-    color: white;
-}
-
-.form-buttons button[type="button"] {
-    background-color: #dc3545;
-    color: white;
+    margin-left: 10px;
 }
 
 .select-department-container {
@@ -1048,7 +927,7 @@ select {
     appearance: none;
     padding: 12px 16px;
     font-size: 16px;
-    border: 2px solid #26c8bb;
+    border: 2px solid #5680c1;
     border-radius: 8px;
     background-color: #f7f7f7;
     color: #333;
@@ -1061,7 +940,7 @@ select {
 
 .select-department:focus,
 .select-department:hover {
-    border-color: #4df19f;
+    border-color: #5680c1;
     background-color: #e3f7f3;
     box-shadow: 0 0 8px rgba(38, 200, 187, 0.3);
     outline: none;
@@ -1117,7 +996,8 @@ select {
     <div>
         <nav class="navbar">
             <div class="navbar-brand">
-                <img src="Xploit2Secure.jpeg" alt="Logo" class="logo" />
+                <!-- <img src="Xploit2Secure.jpeg" alt="Logo" class="logo" /> -->
+                <img src="Xploit2Secure.png" alt="Logo" class="logo" />
                 <div class="navbar-buttons">
                     <button @click="openQuestionModal">Manage Questions</button>
                     <button @click="logout">Logout</button>
@@ -1128,17 +1008,18 @@ select {
         <div>
             <div v-if="showQuestionModal" class="modal">
                 <div class="modal-content">
-                    <div>
+                    <div class="add-question-modal">
+                     <button class="close-modal" @click="closeQuestionModal">X</button>
                         <h3>{{ isEditing ? 'Edit Question' : 'Add Question' }}</h3>
                         <form @submit.prevent="isEditing ? updateQuestion() : addQuestion()">
                             <input v-model="question.question_text" placeholder="Question Text" required />
                             <div class="options-container">
                                 <div v-for="(option, index) in question.options" :key="index" class="option-item">
                                     <input v-model="question.options[index]" placeholder="Option" required />
-                                    <button type="button" @click="deleteOption(index)">Delete Option</button>
+                                    <button type="button" @click="deleteOption(index)">Delete</button>
                                 </div>
-                                <button type="button" @click="addOption">Add Option</button>
                             </div>
+                             <button type="button" @click="addOption">Add Option</button>
                             <div class="form-group">
                                 <select v-model="question.answer" required>
                                     <option value="" disabled>Select Correct Answer</option>
@@ -1178,11 +1059,11 @@ select {
                             </tbody>
                         </table>
                     </div>
-                    <button class="close-button" @click="closeQuestionModal">Close</button>
+                   
                 </div>
             </div>
 
-            <h2 class="candidate">Dashboard</h2>
+         <!--   <h2 class="candidate">Dashboard</h2> -->
 
             <div class="select-department-container">
                 <select id="department" class="select-department" v-model="selectedDepartment">
@@ -1204,6 +1085,7 @@ select {
         
             <button @click="sendPhishingEmails">Send Phishing Email</button>
             <button @click="downloadReport">Download Performance Report</button>
+            <button @click="downloadReportPdf">Download Complete Report</button>
             <button @click="emailedCandidatesReport">Generate Emailed Candidates Report</button>       
             <button @click="sendReminder" class="sending-reminder-button">Send Reminder</button>
 
@@ -1295,8 +1177,10 @@ export default {
         },
 
         logout() {
-            // fetch('http://127.0.0.1:5000/logout', {
             fetch('https://phishing-application-demo.onrender.com/logout', {
+            // fetch('http://35.182.29.153/api/logout', {
+            // fetch('https://telecrm-phishing-application.onrender.com//logout', {
+            // fetch('https://phishing-application-demo.onrender.com/logout', {
                 method: 'POST',
                 headers: {
                 'Content-Type': 'application/json',
@@ -1320,8 +1204,9 @@ export default {
             }
 
             try {
-                // const response = await fetch('http://127.0.0.1:5000/send_email', {
                 const response = await fetch('https://phishing-application-demo.onrender.com/send_email', {
+                // const response = await fetch('https://telecrm-phishing-application.onrender.com//send_email', {
+                // const response = await fetch('https://phishing-application-demo.onrender.com/send_email', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -1343,8 +1228,9 @@ export default {
         },
 
         async downloadReport() {
-            // const response = await fetch('http://127.0.0.1:5000/generate_reports');
             const response = await fetch('https://phishing-application-demo.onrender.com/generate_reports');
+            // const response = await fetch('https://telecrm-phishing-application.onrender.com//generate_reports');
+            // const response = await fetch('https://phishing-application-demo.onrender.com/generate_reports');
             const blob = await response.blob();
             const url = window.URL.createObjectURL(blob);
             const a = document.createElement('a');
@@ -1358,7 +1244,7 @@ export default {
 
         // async fetchReports() {
         //     try {
-        //         const response = await fetch('http://127.0.0.1:5000/reports');
+        //         const response = await fetch('https://phishing-application-demo.onrender.com/reports');
         //         if (!response.ok) {
         //             throw new Error(`HTTP error! Status: ${response.status}`);
         //         }
@@ -1371,8 +1257,9 @@ export default {
 
         async fetchReports() {
             try {
-                // const response = await fetch('http://127.0.0.1:5000/get_all_reports');
                 const response = await fetch('https://phishing-application-demo.onrender.com/get_all_reports');
+                // const response = await fetch('https://telecrm-phishing-application.onrender.com//get_all_reports');
+                // const response = await fetch('https://phishing-application-demo.onrender.com/get_all_reports');
                 if (!response.ok) {
                     throw new Error('Failed to fetch reports');
                 }
@@ -1386,8 +1273,9 @@ export default {
 
         async fetchQuestions() {
             try {
-                // const response = await fetch('http://127.0.0.1:5000/questions');
                 const response = await fetch('https://phishing-application-demo.onrender.com/questions');
+                // const response = await fetch('https://telecrm-phishing-application.onrender.com//questions');
+                // const response = await fetch('https://phishing-application-demo.onrender.com/questions');
                 const data = await response.json();
                 this.questions = data;
             } catch (error) {
@@ -1397,8 +1285,9 @@ export default {
 
         async fetchColleagues() {
             try {
-                // const response = await fetch('http://127.0.0.1:5000/users');
                 const response = await fetch('https://phishing-application-demo.onrender.com/users');
+                // const response = await fetch('https://telecrm-phishing-application.onrender.com//users');
+                // const response = await fetch('https://phishing-application-demo.onrender.com/users');
                 const data = await response.json();
                 this.colleagues = data;
             } catch (error) {
@@ -1454,8 +1343,9 @@ export default {
             this.stopPolling();
 
             try {
-                // const response = await fetch(`http://127.0.0.1:5000/generate_emailed_candidates_report`, {
                 const response = await fetch(`https://phishing-application-demo.onrender.com/generate_emailed_candidates_report`, {
+                // const response = await fetch(`https://telecrm-phishing-application.onrender.com//generate_emailed_candidates_report`, {
+                // const response = await fetch(`https://phishing-application-demo.onrender.com/generate_emailed_candidates_report`, {
                     method: 'GET'
                 });
 
@@ -1500,8 +1390,9 @@ export default {
             formData.append('file', this.file);
 
             try {
-                // const response = await fetch('http://127.0.0.1:5000/upload_colleagues_data', {
                 const response = await fetch('https://phishing-application-demo.onrender.com/upload_colleagues_data', {
+                // const response = await fetch('https://telecrm-phishing-application.onrender.com//upload_colleagues_data', {
+                // const response = await fetch('https://phishing-application-demo.onrender.com/upload_colleagues_data', {
                 method: 'POST',
                 body: formData,
                 });
@@ -1548,8 +1439,9 @@ export default {
 
         async fetchQuestions() {
             try {
-                // const response = await fetch('http://127.0.0.1:5000/questions');
                 const response = await fetch('https://phishing-application-demo.onrender.com/questions');
+                // const response = await fetch('https://telecrm-phishing-application.onrender.com//questions');
+                // const response = await fetch('https://phishing-application-demo.onrender.com/questions');
                 const data = await response.json();
                 this.questions = data;
             } catch (error) {
@@ -1558,8 +1450,9 @@ export default {
         },
 
         async addQuestion() {
-            // const response = await fetch('http://127.0.0.1:5000/questions', {
             const response = await fetch('https://phishing-application-demo.onrender.com/questions', {
+            // const response = await fetch('https://telecrm-phishing-application.onrender.com//questions', {
+            // const response = await fetch('https://phishing-application-demo.onrender.com/questions', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -1589,8 +1482,9 @@ export default {
                 return;
             }
 
-            // const response = await fetch(`http://127.0.0.1:5000/questions/${this.currentQuestionId}`, {
             const response = await fetch(`https://phishing-application-demo.onrender.com/questions/${this.currentQuestionId}`, {
+            // const response = await fetch(`https://telecrm-phishing-application.onrender.com//questions/${this.currentQuestionId}`, {
+            // const response = await fetch(`https://phishing-application-demo.onrender.com/questions/${this.currentQuestionId}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
@@ -1612,8 +1506,9 @@ export default {
         },
 
         async deleteQuestion(id) {
-            // await fetch(`http://127.0.0.1:5000/questions/${id}`, {
             await fetch(`https://phishing-application-demo.onrender.com/questions/${id}`, {
+            // await fetch(`https://telecrm-phishing-application.onrender.com//questions/${id}`, {
+            // await fetch(`https://phishing-application-demo.onrender.com/questions/${id}`, {
                 method: 'DELETE'
             });
             this.fetchQuestions();
@@ -1676,8 +1571,9 @@ export default {
             try {
                 const pendingReports = this.reports.filter(report => report.status === 'Pending');
                 for (const report of pendingReports) {
-                    // await fetch(`http://127.0.0.1:5000/send_reminder/${report.id}`, {
                     await fetch(`https://phishing-application-demo.onrender.com/send_reminder/${report.id}`, {
+                    // await fetch(`https://telecrm-phishing-application.onrender.com//send_reminder/${report.id}`, {
+                    // await fetch(`https://phishing-application-demo.onrender.com/send_reminder/${report.id}`, {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
@@ -1697,8 +1593,9 @@ export default {
             }
 
             try {
-                // const response = await fetch('http://127.0.0.1:5000/delete_colleagues_data', {
                 const response = await fetch('https://phishing-application-demo.onrender.com/delete_colleagues_data', {
+                // const response = await fetch('https://telecrm-phishing-application.onrender.com//delete_colleagues_data', {
+                // const response = await fetch('https://phishing-application-demo.onrender.com/delete_colleagues_data', {
                     method: 'DELETE'
                 });
 
@@ -1719,8 +1616,9 @@ export default {
 
         async downloadCertificate(colleagueId) {
             try {
-                // const response = await fetch(`http://127.0.0.1:5000/download-certificate/${colleagueId}`, {
                 const response = await fetch(`https://phishing-application-demo.onrender.com/download-certificate/${colleagueId}`, {
+                // const response = await fetch(`https://telecrm-phishing-application.onrender.com//download-certificate/${colleagueId}`, {
+                // const response = await fetch(`https://phishing-application-demo.onrender.com/download-certificate/${colleagueId}`, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/pdf',
@@ -1745,6 +1643,27 @@ export default {
                 alert("An error occurred while downloading the certificate.");
             }
         },
+
+        async downloadReportPdf() {
+            try {
+                const response = await fetch('https://phishing-application-demo.onrender.com/generate_reports_pdf');
+                // const response = await fetch('https://telecrm-phishing-application.onrender.com//generate_reports_pdf');
+                if (!response.ok) throw new Error('Failed to fetch PDF report');
+
+                const blob = await response.blob();
+                const url = window.URL.createObjectURL(blob);
+
+                const link = document.createElement('a');
+                link.href = url;
+                link.download = 'Phishing_Simulation_Report.pdf';
+                link.click();
+
+                window.URL.revokeObjectURL(url);
+            } catch (error) {
+                console.error('Error downloading report:', error);
+                alert('Could not download PDF report at this time.');
+            }
+        }
     },
 
     async mounted() {
@@ -1786,13 +1705,6 @@ body {
     margin-left: 20px;
 }
 
-.navbar {
-    background-color: #26c8bb;
-    color: white;
-    padding: 1rem;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
-}
-
 .nav-links a {
     color: white;
     text-decoration: none;
@@ -1818,26 +1730,23 @@ body {
 h2 {
     font-size: 28px;
     color: #444;
-    border-bottom: 2px solid #69b820;
     padding-bottom: 15px;
-    margin-bottom: 30px;
 }
 
 button {
-    padding: 8px 10px;
+    padding: 8px 14px;
     font-size: 14px;
-    background-image: linear-gradient(to right, #4df19f, #34d399);
+    background-image: linear-gradient(to right, #4f72a9, #114ba4);
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background 0.3s ease;
-    margin: 10px 20px;
+    margin: 6px;
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
 }
 
 button:hover {
-    background-image: linear-gradient(to right, #57a015, #4ca852);
+    background-image: linear-gradient(to right, #114ba4, #4f72a9);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
@@ -1856,7 +1765,7 @@ table td {
 }
 
 table th {
-    background-color: #c2e8a7;
+     background-color: #cadfff;
     font-weight: bold;
 }
 
@@ -1865,7 +1774,7 @@ tbody tr:nth-child(even) {
 }
 
 tbody tr:hover {
-    background-color: #e1f5fe;
+    background-color: #eff5ff;
     transition: background 0.3s ease;
 }
 
@@ -1910,40 +1819,45 @@ select {
     padding: 5px;
     margin-bottom: 20px;
 }
-
+.option-item>button {
+    position: relative;
+    top: -4px;
+}
 .message {
     margin-top: 20px;
     color: green;
 }
 
 .upload-section {
-    margin: 1rem 0;
+    margin: 0.5rem 0;
+     border: 1px solid #1f3557;
+    padding: 20px;
+    border-radius: 4px;
 }
 
 
 .navbar {
-    background-color: #26c8bb;
+    background-color: #1f3557;
     color: white;
-    padding: 1rem;
+    padding: 0.5rem 1rem;
     position: relative;
     z-index: 100;
+    margin-bottom:20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
 }
-
 .navbar-brand {
     display: flex;
     align-items: center;
 }
-
+.add-question-modal input {
+    padding: 8px;
+    margin-bottom: 8px;
+    border-radius: 6px;
+    border: 1px solid #8d8d8d;
+}
 
 .modal-content {
-    background: white;
-    padding: 8px 16px;
-    border-radius: 5px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    width: 800px;
     max-height: 80vh;
-    display: flex;
-    flex-direction: column;
 }
 
 .modal {
@@ -1952,18 +1866,18 @@ select {
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: #fff;
-    padding: 20px;
+    padding: 10px 20px;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     z-index: 1200;
     width: 800px;
     border: 1px solid #26c8bb;
+    height:90vh;
 }
 
 .questions-list {
-    max-height: 300px;
+    max-height: 190px;
     overflow-y: auto;
-    margin-top: 20px;
 }
 
 
@@ -1973,14 +1887,10 @@ select {
 
 .navbar-buttons button {
     margin-left: auto;
-    background-color: #9de764;
 }
-
-.navbar-buttons button:hover {
-    margin-left: auto;
-    background-color: #529af3;
+.close-modal:before {
+    display: none !important;
 }
-
 .close-button {
     padding: 6px 12px;
     font-size: 12px;
@@ -1989,10 +1899,24 @@ select {
     color: white;
     background-color: #f44336;
 }
-
+.close-modal {
+   position: absolute;
+    right: 6px;
+    top: 6px;
+    border-radius: 50px !important;
+    width: 24px !important;
+    height: 24px !important;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0 !important;
+}
 .modal-content h3 {
-    font-size: 22px;
-    margin-bottom: 15px;
+    font-size: 18px;
+    margin-bottom: 6px;
+    text-transform: uppercase;
 }
 
 .modal-content form {
@@ -2023,7 +1947,6 @@ select {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    margin-top: 10px;
 }
 
 .modal-content button::before {
@@ -2046,7 +1969,8 @@ select {
     font-size: 12px;
     padding: 8px;
     background-color: #28a745;
-    margin-top: 5px;
+   margin: 0;
+    
 }
 
 .modal-content button[type="button"]:hover {
@@ -2065,7 +1989,6 @@ select {
 
 .questions-list table {
     width: 100%;
-    margin-top: 20px;
     border-collapse: collapse;
 }
 
@@ -2093,6 +2016,7 @@ select {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    min-width: 70px;
 }
 
 .questions-list h3 {
@@ -2106,18 +2030,22 @@ select {
 
 .options-container {
     display: flex;
-    flex-direction: column;
-    margin-bottom: 1rem;
+        margin-bottom: 0rem;
+    flex-wrap: wrap;
+        gap: 10px;
 }
 
 .option-item {
     display: flex;
     align-items: center;
     margin-bottom: 0.5rem;
+    gap:5px;
+    flex:1;
 }
 
 .option-item input {
     margin-right: 0.5rem;
+    min-width: 296px;
 }
 
 .form-group {
@@ -2125,21 +2053,24 @@ select {
     align-items: center;
     margin-bottom: 1rem;
     position: relative;
+    margin-top: 6px;
 }
 
 .form-group select {
     padding: 10px;
-    font-size: 16px;
-    border-radius: 8px;
-    border: 1px solid #ddd;
-    width: 200px;
+    font-size: 13px;
+    border-radius: 6px;
+    width: 240px;
+    border: 1px solid #8d8d8d;
+    -webkit-appearance: none;
+    -moz-appearance: none;
     appearance: none;
-    background-color: #f1f1f1;
     color: #333;
     cursor: pointer;
     transition: border-color 0.3s ease;
     background-repeat: no-repeat;
     background-position: right 10px center;
+    margin-bottom:0;
 }
 
 .form-group select:hover {
@@ -2162,34 +2093,12 @@ select {
 .form-buttons {
     display: flex;
     gap: 10px;
+    margin-left: 10px;
 }
-
-.form-buttons button {
-    padding: 10px 15px;
-    font-size: 16px;
-    margin-left: 5px;
-    cursor: pointer;
-    border: none;
-    border-radius: 5px;
-}
-
-.form-buttons button:hover {
-    background-color: #045b31;
-    color: white;
-}
-
-.form-buttons button[type="submit"]:hover {
-    background-color: #218838;
-}
-
-.form-buttons button[type="submit"] {
-    background-color: #007BFF;
-    color: white;
-}
-
-.form-buttons button[type="button"] {
-    background-color: #dc3545;
-    color: white;
+.form-buttons>button {
+    margin: 0 !important;
+    padding: 7px 20px !important;
+    height: 34px;
 }
 
 .select-department-container {
@@ -2212,7 +2121,7 @@ select {
     appearance: none;
     padding: 12px 16px;
     font-size: 16px;
-    border: 2px solid #26c8bb;
+    border: 2px solid #5f8acc;;
     border-radius: 8px;
     background-color: #f7f7f7;
     color: #333;
@@ -2225,9 +2134,10 @@ select {
 
 .select-department:focus,
 .select-department:hover {
-    border-color: #4df19f;
-    background-color: #e3f7f3;
-    box-shadow: 0 0 8px rgba(38, 200, 187, 0.3);
+    border-color: #5f8acc;
+    background-color: #e3eeff;;
+    box-shadow: 0 0 8px rgb(31 53 87 / 30% 30% );
+
     outline: none;
 }
 .select-department::after {
