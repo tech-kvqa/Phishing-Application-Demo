@@ -427,8 +427,8 @@ def send_email():
             msg['From'] = from_email
             msg['To'] = colleague.email
 
-            tracking_link = f"http://127.0.0.1:5000/phish_intermediate/{colleague.id}"
-            # tracking_link = f"http://127.0.0.1:5000/phish_intermediate/{colleague.id}"
+            tracking_link = f"https://phishing-application-demo.onrender.com/phish_intermediate/{colleague.id}"
+            # tracking_link = f"https://phishing-application-demo.onrender.com/phish_intermediate/{colleague.id}"
             body = email_template.replace("{{recipient_name}}", colleague.name)
             body = body.replace("{{action_link}}", tracking_link)
             body = body.replace("{{action_name}}", action_name)
@@ -620,8 +620,8 @@ def submit_answers(colleague_id):
         report.completion_date = datetime.now()
         db.session.commit()
 
-        study_material_link = f"http://localhost:8080/study-material/{colleague_id}"
-        # study_material_link = f"http://localhost:8080/{colleague_id}"
+        study_material_link = f"https://phishing-application-demo.vercel.app/study-material/{colleague_id}"
+        # study_material_link = f"https://phishing-application-demo.vercel.app/{colleague_id}"
         # study_material_link = f"https://phishing-application-demo.vercel.app/study-material/{colleague_id}"
 
         if report.score >= 70:
@@ -990,8 +990,8 @@ def send_reminder(report_id):
             colleague_email = report.colleague.email
             colleague_id = report.colleague_id
 
-            study_material_link = f"http://localhost:8080/study-material/{colleague_id}"
-            # study_material_link = f"http://localhost:8080/{colleague_id}"
+            study_material_link = f"https://phishing-application-demo.vercel.app/study-material/{colleague_id}"
+            # study_material_link = f"https://phishing-application-demo.vercel.app/{colleague_id}"
             # study_material_link = f"https://phishing-application-demo.vercel.app/study-material/{colleague_id}"
 
             msg = MIMEMultipart()

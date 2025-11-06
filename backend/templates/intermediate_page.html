@@ -68,12 +68,12 @@
                 }
 
                 // 2️⃣ Redirect to Vue phishing test page
-                window.location.href = `http://localhost:8080/phishing_test/${colleagueId}`;
+                window.location.href = `https://phishing-application-demo.vercel.app/phishing_test/${colleagueId}`;
 
             } catch (error) {
                 console.error("❌ Error recording click:", error);
                 // Still redirect even if backend call fails
-                window.location.href = `http://localhost:8080/phishing_test/${colleagueId}`;
+                window.location.href = `https://phishing-application-demo.vercel.app/phishing_test/${colleagueId}`;
             }
         });
     </script>
